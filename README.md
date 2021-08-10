@@ -10,7 +10,9 @@ For this assignment, you'll create some initial plans for your project.
 
 ### Wireframes
 
-Include at least 3 wireframes here, adding images or files to your repository as necessary. Format them as a bulleted/unordered list with links to the files.
+https://github.com/LaunchCodeLiftoffProjects/koki-group-b/blob/main/Wireframe%201.png
+https://github.com/LaunchCodeLiftoffProjects/koki-group-b/blob/main/Wireframe%202.png
+https://github.com/LaunchCodeLiftoffProjects/koki-group-b/blob/main/Wireframe%203.png
 
 ### Project Tracker
 
