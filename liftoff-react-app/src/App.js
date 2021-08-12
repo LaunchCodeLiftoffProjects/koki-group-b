@@ -4,20 +4,59 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello, World!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <nav>
+        <ul className="nav-links nav-left">
+          <li className="navLink"><a href="#">Bedroom</a></li>
+          <li className="navLink"><a href="#">Kitchen</a></li>
+          <li className="navLink"><a href="#">Dining</a></li>
+          <li className="navLink"><a href="#">Living</a></li>
+          <li className="navLink"><a href="#">Bathroom</a></li>
+          <li className="navLink"><a href="#">Outdoor</a></li>
+        </ul>
+
+        <ul className="nav-links nav-right">
+          <li className="navLink"><a href="#">Cart</a></li>
+          <li className="navLink"><a href="#">Log In</a></li>
+          <li className="navLink"><a href="#">Sign Up</a></li>
+          
+          <div className="burger">
+          <div></div>
+          <div></div>
+          <div></div>
+          </div>
+
+        </ul>
+      </nav>
+      
+      
+      <div className="main">
+
+        <div className="window">Hello, World!</div>
+        
+        <div className="sort">
+          <label for="sort">Sort by:</label>
+          <select id="sort" name="sort-ops">
+            <option value="abc">Alphabetical</option>
+            <option value="priceL2H">Price (Low to High)</option>
+            <option value="priceH2L">Price (High to Low)</option>
+          </select>
+        </div>
+        
+        <div className="grid">
+          <div className="box">I am a product!</div>
+          <div className="box">I am a product!</div>
+          <div className="box">I am a product!</div>
+          <div className="box">I am a product!</div>
+          <div className="box">I am a product!</div>
+          <div className="box">I am a product!</div>
+          <div className="box">I am a product!</div>
+          <div className="box">I am a product!</div>
+          <div className="box">I am a product!</div>
+          <div className="box">I am a product!</div>
+        </div>
+      </div>
+
     </div>
   );
 }

@@ -2,37 +2,134 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* ****** NAVIGATION ****** */
+
+/* NAV BAR DESKTOP */
+
+nav {
+  background: rgb(36, 36, 36);
+  color: #ddd;
+  display: flex;
+  justify-content: space-between;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+  list-style-type: none;
+}
+
+.navLink a {
+  text-decoration: none;
+  color: #ddd;
+}
+
+.navLink a:hover {
+  color: rgb(59, 128, 64);
+}
+
+.navLink a:active {
+  color: rgb(59, 128, 64);
+}
+
+.navLink {
+  list-style-type: none;
+}
+
+.nav-right {
+  width: 20%;
+  padding-right: 20px;
+}
+
+/* BURGER & MOBILE */
+
+.burger div {
+  background-color: #ddd;
+  height: 3px;
+  width: 30px;
+  margin: 5px;
+  display: none;
+}
+
+@media screen and (max-width: 800px){
+  .burger div {
+    display: block;
+  }
+
+  .nav-left {
+    display: none;
+  }
+
+  nav {
+    flex-direction: row-reverse;
+  }
+
+  .nav-right {
+    width: 50%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+/* ****** MAIN CONTENT ****** */
+
+.main {
   display: flex;
   flex-direction: column;
+}
+
+/* WINDOW */
+
+.window {
+  width: 100%;
+  height: 400px;
+  background: brown;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 90px;
 }
 
-.App-link {
-  color: #61dafb;
+@media screen and (max-width: 800px) {
+  .window {
+    height: 80vh;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+/* PRODUCT GRID */
+
+.sort {
+  height: 50px;
+}
+
+.grid {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.box {
+  height: 300px;
+  width: 300px;
+  background-color: bisque;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 800px) {
+  .box {
+    width: 90%;
   }
 }
+
+
+
+
+
+
+
+
