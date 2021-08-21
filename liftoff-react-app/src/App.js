@@ -1,9 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {Component} from 'react';
+import axios from 'axios'
 
-function App() {
-  return (
-    <div className="App">
+const api = axios.create({
+  baseURL: `http://localhost:3005/products`
+})
+
+class App extends Component {
+
+  state = {
+    products: []
+  }
+
+  constructor() {
+    super();
+    this.getProducts();
+  }
+
+  getProducts = async () => {
+    let data = await api.get('/').then(({ data }) => data);
+    this.setState({ products: data})
+  }
+
+  render() {
+    return (
+      <div className="App">
 
       <nav>
         <ul className="nav-links nav-left">
@@ -28,8 +49,8 @@ function App() {
 
         </ul>
       </nav>
-      
-      
+
+
       <div className="main">
 
         <div className="window">Hello, World!</div>
@@ -44,21 +65,93 @@ function App() {
         </div>
         
         <div className="grid">
-          <div className="box">I am a product!</div>
-          <div className="box">I am a product!</div>
-          <div className="box">I am a product!</div>
-          <div className="box">I am a product!</div>
-          <div className="box">I am a product!</div>
-          <div className="box">I am a product!</div>
-          <div className="box">I am a product!</div>
-          <div className="box">I am a product!</div>
-          <div className="box">I am a product!</div>
-          <div className="box">I am a product!</div>
+          
+          <div className="box">
+            {this.state.products.map(product => <h2 key={product.id}>{product.Product_Name}</h2>)}
+            {this.state.products.map(product => <p key={product.id}>{product.Description}</p>)}
+            {this.state.products.map(product => <h4 key={product.id}>${product.Price}</h4>)}
+            <button className="add2CartBtn">Add to cart</button>
+          </div>
+
+          <div className="box">
+            {this.state.products.map(product => <h2 key={product.id}>{product.Product_Name}</h2>)}
+            {this.state.products.map(product => <p key={product.id}>{product.Description}</p>)}
+            {this.state.products.map(product => <h4 key={product.id}>${product.Price}</h4>)}
+            <button className="add2CartBtn">Add to cart</button>
+          </div>
+
+          <div className="box">
+            {this.state.products.map(product => <h2 key={product.id}>{product.Product_Name}</h2>)}
+            {this.state.products.map(product => <p key={product.id}>{product.Description}</p>)}
+            {this.state.products.map(product => <h4 key={product.id}>${product.Price}</h4>)}
+            <button className="add2CartBtn">Add to cart</button>
+          </div>
+
+          <div className="box">
+            {this.state.products.map(product => <h2 key={product.id}>{product.Product_Name}</h2>)}
+            {this.state.products.map(product => <p key={product.id}>{product.Description}</p>)}
+            {this.state.products.map(product => <h4 key={product.id}>${product.Price}</h4>)}
+            <button className="add2CartBtn">Add to cart</button>
+          </div>
+
+          <div className="box">
+            {this.state.products.map(product => <h2 key={product.id}>{product.Product_Name}</h2>)}
+            {this.state.products.map(product => <p key={product.id}>{product.Description}</p>)}
+            {this.state.products.map(product => <h4 key={product.id}>${product.Price}</h4>)}
+            <button className="add2CartBtn">Add to cart</button>
+          </div>
+
+          <div className="box">
+            {this.state.products.map(product => <h2 key={product.id}>{product.Product_Name}</h2>)}
+            {this.state.products.map(product => <p key={product.id}>{product.Description}</p>)}
+            {this.state.products.map(product => <h4 key={product.id}>${product.Price}</h4>)}
+            <button className="add2CartBtn">Add to cart</button>
+          </div>
+
+          <div className="box">
+            {this.state.products.map(product => <h2 key={product.id}>{product.Product_Name}</h2>)}
+            {this.state.products.map(product => <p key={product.id}>{product.Description}</p>)}
+            {this.state.products.map(product => <h4 key={product.id}>${product.Price}</h4>)}
+            <button className="add2CartBtn">Add to cart</button>
+          </div>
+
+          <div className="box">
+            {this.state.products.map(product => <h2 key={product.id}>{product.Product_Name}</h2>)}
+            {this.state.products.map(product => <p key={product.id}>{product.Description}</p>)}
+            {this.state.products.map(product => <h4 key={product.id}>${product.Price}</h4>)}
+            <button className="add2CartBtn">Add to cart</button>
+          </div>
+
+          <div className="box">
+            {this.state.products.map(product => <h2 key={product.id}>{product.Product_Name}</h2>)}
+            {this.state.products.map(product => <p key={product.id}>{product.Description}</p>)}
+            {this.state.products.map(product => <h4 key={product.id}>${product.Price}</h4>)}
+            <button className="add2CartBtn">Add to cart</button>
+          </div>
+
+          <div className="box">
+            {this.state.products.map(product => <h2 key={product.id}>{product.Product_Name}</h2>)}
+            {this.state.products.map(product => <p key={product.id}>{product.Description}</p>)}
+            {this.state.products.map(product => <h4 key={product.id}>${product.Price}</h4>)}
+            <button className="add2CartBtn">Add to cart</button>
+          </div>
+
         </div>
+
       </div>
 
-    </div>
-  );
+      <footer>
+        Claire Stanley, Nikolay Pruss, Deepshikha Anand, Cole Epperson 
+      </footer>
+
+      </div>
+
+            
+    );
+  }
+        
+
 }
+
 
 export default App;

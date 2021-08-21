@@ -7,8 +7,8 @@
 /* NAV BAR DESKTOP */
 
 nav {
-  background: rgb(36, 36, 36);
-  color: #ddd;
+  background: #2B2D42;
+  color: #EDF2F4;
   display: flex;
   justify-content: space-between;
 }
@@ -23,15 +23,15 @@ nav {
 
 .navLink a {
   text-decoration: none;
-  color: #ddd;
+  color: #EDF2F4;
 }
 
 .navLink a:hover {
-  color: rgb(59, 128, 64);
+  color: #EF233C;
 }
 
 .navLink a:active {
-  color: rgb(59, 128, 64);
+  color: #EF233C;
 }
 
 .navLink {
@@ -46,7 +46,7 @@ nav {
 /* BURGER & MOBILE */
 
 .burger div {
-  background-color: #ddd;
+  background-color: #EDF2F4;
   height: 3px;
   width: 30px;
   margin: 5px;
@@ -84,7 +84,7 @@ nav {
 .window {
   width: 100%;
   height: 400px;
-  background: brown;
+  background: #8D99AE;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -100,7 +100,7 @@ nav {
 /* PRODUCT GRID */
 
 .sort {
-  height: 50px;
+  margin: 40px 0px;
 }
 
 .grid {
@@ -113,11 +113,21 @@ nav {
 .box {
   height: 300px;
   width: 300px;
-  background-color: bisque;
+  background-color: #EDF2F4;
   margin-bottom: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+.add2CartBtn{
+  background-color: #EF233C;
+  height: 30px;
+  width: 150px;
+  border: none;
+  font-size: 1rem;
+
 }
 
 @media screen and (max-width: 800px) {
@@ -127,8 +137,14 @@ nav {
 }
 
 
+/* ****** FOOTER ****** */
 
-
+footer {
+  background-color: #2B2D42;
+  color: #EDF2F4;
+  padding: 30px;
+  
+}
 
 
 
