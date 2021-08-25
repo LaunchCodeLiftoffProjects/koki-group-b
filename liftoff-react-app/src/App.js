@@ -22,6 +22,19 @@ class App extends Component {
     this.setState({ products: data})
   }
 
+
+  addToCart() {
+    console.log("CLICK")
+    
+    const item = { Product_Name: 'test' };
+
+    axios.post(api, item)
+        .then(function (response) {
+          console.log(response)
+        })
+  }
+
+  
   render() {
     return (
       <div className="App">
@@ -64,77 +77,16 @@ class App extends Component {
           </select>
         </div>
         
-        <div className="grid">
-          
-          <div className="box">
-            {this.state.products.map(product => <h2 key={product.id}>{product.Product_Name}</h2>)}
-            {this.state.products.map(product => <p key={product.id}>{product.Description}</p>)}
-            {this.state.products.map(product => <h4 key={product.id}>${product.Price}</h4>)}
-            <button className="add2CartBtn">Add to cart</button>
-          </div>
-
-          <div className="box">
-            {this.state.products.map(product => <h2 key={product.id}>{product.Product_Name}</h2>)}
-            {this.state.products.map(product => <p key={product.id}>{product.Description}</p>)}
-            {this.state.products.map(product => <h4 key={product.id}>${product.Price}</h4>)}
-            <button className="add2CartBtn">Add to cart</button>
-          </div>
-
-          <div className="box">
-            {this.state.products.map(product => <h2 key={product.id}>{product.Product_Name}</h2>)}
-            {this.state.products.map(product => <p key={product.id}>{product.Description}</p>)}
-            {this.state.products.map(product => <h4 key={product.id}>${product.Price}</h4>)}
-            <button className="add2CartBtn">Add to cart</button>
-          </div>
-
-          <div className="box">
-            {this.state.products.map(product => <h2 key={product.id}>{product.Product_Name}</h2>)}
-            {this.state.products.map(product => <p key={product.id}>{product.Description}</p>)}
-            {this.state.products.map(product => <h4 key={product.id}>${product.Price}</h4>)}
-            <button className="add2CartBtn">Add to cart</button>
-          </div>
-
-          <div className="box">
-            {this.state.products.map(product => <h2 key={product.id}>{product.Product_Name}</h2>)}
-            {this.state.products.map(product => <p key={product.id}>{product.Description}</p>)}
-            {this.state.products.map(product => <h4 key={product.id}>${product.Price}</h4>)}
-            <button className="add2CartBtn">Add to cart</button>
-          </div>
-
-          <div className="box">
-            {this.state.products.map(product => <h2 key={product.id}>{product.Product_Name}</h2>)}
-            {this.state.products.map(product => <p key={product.id}>{product.Description}</p>)}
-            {this.state.products.map(product => <h4 key={product.id}>${product.Price}</h4>)}
-            <button className="add2CartBtn">Add to cart</button>
-          </div>
-
-          <div className="box">
-            {this.state.products.map(product => <h2 key={product.id}>{product.Product_Name}</h2>)}
-            {this.state.products.map(product => <p key={product.id}>{product.Description}</p>)}
-            {this.state.products.map(product => <h4 key={product.id}>${product.Price}</h4>)}
-            <button className="add2CartBtn">Add to cart</button>
-          </div>
-
-          <div className="box">
-            {this.state.products.map(product => <h2 key={product.id}>{product.Product_Name}</h2>)}
-            {this.state.products.map(product => <p key={product.id}>{product.Description}</p>)}
-            {this.state.products.map(product => <h4 key={product.id}>${product.Price}</h4>)}
-            <button className="add2CartBtn">Add to cart</button>
-          </div>
-
-          <div className="box">
-            {this.state.products.map(product => <h2 key={product.id}>{product.Product_Name}</h2>)}
-            {this.state.products.map(product => <p key={product.id}>{product.Description}</p>)}
-            {this.state.products.map(product => <h4 key={product.id}>${product.Price}</h4>)}
-            <button className="add2CartBtn">Add to cart</button>
-          </div>
-
-          <div className="box">
-            {this.state.products.map(product => <h2 key={product.id}>{product.Product_Name}</h2>)}
-            {this.state.products.map(product => <p key={product.id}>{product.Description}</p>)}
-            {this.state.products.map(product => <h4 key={product.id}>${product.Price}</h4>)}
-            <button className="add2CartBtn">Add to cart</button>
-          </div>
+        <div className="grid" id="grid">
+          {this.state.products.map(product => (
+                
+                <div className="box" key={product.id}>
+                      <h2>{product.Product_Name}</h2>
+                      <p>{product.Description}</p>
+                      <h4>${product.Price}</h4>
+                      <button className="add2CartBtn" onClick={this.addToCart}>Add to cart</button>
+                </div> 
+          ))}
 
         </div>
 
