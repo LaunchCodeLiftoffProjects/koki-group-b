@@ -20,9 +20,7 @@ class App extends Component {
     return (
       <div className="App">
         <Nav />
-        <Main />
         <API />
-        <Cart />
         <Footer />
       </div>
     );

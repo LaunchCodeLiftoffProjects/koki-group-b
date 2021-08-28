@@ -2,6 +2,7 @@
 
   import React from "react";
   import ProductBox from "./components/ProductBox";
+  import Main from "./components/Main"
 
   
   export default class API extends React.Component {
@@ -36,16 +37,11 @@
         return <div>No products</div>;
       }
       
-  
-      return (
-        <div className="grid" id="grid">
-
-           {this.state.products.map((product,i) => (
-                
-                <ProductBox data={this.state.products[i]} key={this.state.id} />
-            ))}
+        return (
+        <div className="api" id="api">
+            <Main products={this.state.products}/>
         </div>
-      );
+        );
     }
   }
 

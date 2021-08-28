@@ -2,10 +2,10 @@ import React from 'react';
 import "../data"
 
 export default function ProductBox(props) {
-    // console.log(props)
+    // console.log("props: " + props)
     const product = props.data;
 
-    // console.log(product)
+    // console.log("product: " + product)
 
     return(
         <div className="box">
