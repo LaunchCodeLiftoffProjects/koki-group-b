@@ -36,7 +36,7 @@
       if (!this.state.products) {
         return <div>No products</div>;
       }
-      
+
         return (
         <div className="api" id="api">
             <Main products={this.state.products}/>

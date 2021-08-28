@@ -1,7 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default function Cart(props) {
+function Cart(){
     return(
-        <div className="window">Cart</div>
+        <div>
+            <h1>View Your Cart</h1>
+            <Link to="/Confirm">Place Order</Link>
+        </div>
     )
 }
+
+export default Cart;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Nav(props) {
     return(
@@ -13,7 +14,7 @@ export default function Nav(props) {
         </ul>
 
         <ul className="nav-links nav-right">
-          <li className="navLink"><a href="#">Cart</a></li>
+          <Link to="/Cart">Cart</Link>
           <li className="navLink"><a href="#">Log In</a></li>
           <li className="navLink"><a href="#">Sign Up</a></li>
           

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ProductBox from "./ProductBox";
 import { sortProducts } from "../helpers/MainHelper";
+import { Link } from 'react-router-dom';
+import Banner from "./Banner";
 
 export default function Main(props) {
   const products = props.products;
@@ -17,7 +19,6 @@ export default function Main(props) {
 
   return (
     <div className="main">
-      <div className="window">Hello, World!</div>
 
       <div className="sort">
         <label for="sort">Sort by:</label>
