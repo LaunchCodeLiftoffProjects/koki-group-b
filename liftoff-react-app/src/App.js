@@ -27,7 +27,7 @@ class App extends Component {
           <Route path="/" exact component={API} />
           <Route path="/Cart" component={Cart} />
           <Route path="/Confirm" component={Confirm} />
-        </Router>
+        </Router>      
         <Footer />
       </div>
     );

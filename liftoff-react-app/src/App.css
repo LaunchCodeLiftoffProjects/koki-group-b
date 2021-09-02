@@ -4,11 +4,10 @@
 
 /* ****** NAVIGATION ****** */
 
-/* NAV BAR DESKTOP */
+/* GLOBAL NAV BAR DESKTOP */
 
 nav {
   background: #2B2D42;
-  color: #EDF2F4;
   display: flex;
   justify-content: space-between;
 }
@@ -26,16 +25,19 @@ nav {
   color: #EDF2F4;
 }
 
-.navLink a:hover {
+.navLink a:hover, .navLink:hover {
   color: #EF233C;
 }
 
-.navLink a:active {
+.navLink a:active, .navLink:active {
   color: #EF233C;
 }
+
 
 .navLink {
   list-style-type: none;
+  color: #EDF2F4;
+  text-decoration: none;
 }
 
 .nav-right {
@@ -43,19 +45,33 @@ nav {
   padding-right: 20px;
 }
 
+/* UPPER NAV BAR DESKTOP */
+
+
+
 /* BURGER & MOBILE */
+
+.burger {
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  padding: 10px;
+}
 
 .burger div {
   background-color: #EDF2F4;
   height: 3px;
   width: 30px;
   margin: 5px;
-  display: none;
+
 }
 
 @media screen and (max-width: 800px){
-  .burger div {
-    display: block;
+  .burger  {
+    display: inline-block;
+    background-color: #2b2d42;
+    width: 100%
   }
 
   .nav-left {
@@ -63,12 +79,11 @@ nav {
   }
 
   nav {
+    display: none;
     flex-direction: row-reverse;
+    background-color: rgb(26, 153, 132);
   }
 
-  .nav-right {
-    width: 50%;
-  }
 }
 
 
@@ -79,16 +94,114 @@ nav {
   flex-direction: column;
 }
 
+
+/* CART */
+
+
+#cart {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  overflow: auto; 
+  background-color: #000000d0;
+}
+
+.cartContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 10px;
+  background-color: #EDF2F4;
+  width: 80%;
+  padding: 20px;
+}
+
+.cartBox {
+  background-color: #99a2b3;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+}
+
+.removeFromCart {
+  background-color: #EF233C;
+  height: 30px;
+  width: 150px;
+  border: none;
+  font-size: 1rem;
+  margin: 10px;
+}
+
+.confirm {
+  background-color: #EF233C;
+  height: 60px;
+  width: 400px;
+  border: none;
+  font-size: 3rem;
+  color: #2B2D42;
+}
+
+.cart-btn-contain {
+  display: flex;
+  position: fixed;
+  right: 10px;
+  top: 10px;
+}
+
+.view-cart-btn {
+  background-color: #cfcfcf;
+  height: 30px;
+  width: 150px;
+  border: none;
+  font-size: 1rem;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.cart-qty{
+  display: inline;
+  padding: 6px 10px;
+  background-color: #EF233C;
+  border-radius: 20px;
+}
+
 /* WINDOW */
 
 .window {
   width: 100%;
-  height: 400px;
+  height: 600px;
   background: #8D99AE;
+  background-image: url("https://github.com/LaunchCodeLiftoffProjects/koki-group-b/blob/main/Banner.jpg?raw=true");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 90px;
+  color: #EF233C;
+}
+
+.window-content {
+  background-color: #0000007c;
+   display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 @media screen and (max-width: 800px) {
@@ -101,6 +214,9 @@ nav {
 
 .sort {
   margin: 40px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .grid {
@@ -128,6 +244,12 @@ nav {
   border: none;
   font-size: 1rem;
 
+}
+
+.add2CartBtn:hover, .add2CartBtn:focus {
+  background-color: #2B2D42;
+  color: #EF233C;
+  font-weight: normal;
 }
 
 @media screen and (max-width: 800px) {
