@@ -2,6 +2,7 @@ const express = require('express');
 const db = require('./config/db');
 const cors = require('cors');
 const productRoutes = require('./routes/products');
+const cartRoutes = require('./routes/cart');
 
 const app = express();
 
@@ -11,7 +12,8 @@ const  PORT = 3005;
 app.use(cors());
 
 //This allows api parsing of json
-app.use(express.json())
+app.use(express.json());
+app.use(express.urlencoded({ extended: false}));
 
 //Connect to database
 db.connect((err) => {

@@ -227,7 +227,7 @@ nav {
 }
 
 .box {
-  height: 300px;
+  height: 350px;
   width: 300px;
   background-color: #EDF2F4;
   margin-bottom: 30px;
@@ -237,13 +237,22 @@ nav {
   flex-direction: column;
 }
 
+.productName {
+    position: relative;
+    top: 20px;
+}
+
+.productImage {
+  height: 200px;
+
+}
+
 .add2CartBtn{
   background-color: #EF233C;
   height: 30px;
   width: 150px;
   border: none;
   font-size: 1rem;
-
 }
 
 .add2CartBtn:hover, .add2CartBtn:focus {

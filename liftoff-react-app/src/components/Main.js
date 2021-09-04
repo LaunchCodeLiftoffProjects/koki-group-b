@@ -3,6 +3,7 @@ import ProductBox from "./ProductBox";
 import { sortProducts } from "../helpers/MainHelper";
 import { Link } from 'react-router-dom';
 import Banner from "./Banner";
+import arm_chair from '../images/arm_chair.jpeg'
 
 export default function Main(props) {
   const products = props.products;
@@ -62,11 +63,13 @@ export default function Main(props) {
         {/* {data.map((product, i) => (
           <ProductBox data={product} key={product.id} />
         ))} */}
-        {data.map((product) => 
+
+        {data.map((product) =>
                 <div className="box" >        
-                    <h2>{product.Product_Name}</h2>
+                    <h2 className="productName">{product.Product_Name}</h2>
+                    <img className="productImage" src={product.Image} />
                     <p>{product.Description}</p>
-                    <h4>${product.Price}</h4>                    
+                    <h4>${product.Price}</h4>
                     <button className="add2CartBtn" onClick={() => addToCart(product)}>Add to cart</button>
                 </div>
         )}
