@@ -29,6 +29,12 @@ export default function Main(props) {
     setCart([...cart, product])
   };
 
+  const removeFromCart = (productToRemove) => {
+    setCart(
+      cart.filter((product) => product !== productToRemove)
+    );
+  }
+
   useEffect(() => {
     const sortArray = (type) => {
       setData(sortProducts(products, type));
@@ -89,7 +95,7 @@ export default function Main(props) {
                   <div className="productControls">
                       <h4>${cartItem.Price}</h4> 
                       <p>QTY: </p>
-                      <button className="removeFromCart">Remove</button>
+                      <button className="removeFromCart" onClick={() => removeFromCart(cartItem)}>Remove</button>
                   </div>
                 
                 </div>
