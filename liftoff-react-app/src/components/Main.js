@@ -4,12 +4,20 @@ import { sortProducts } from "../helpers/MainHelper";
 import { Link } from 'react-router-dom';
 import Banner from "./Banner";
 import arm_chair from '../images/arm_chair.jpeg'
+import { GrCart } from "react-icons/gr"
+import { GrClose } from 'react-icons/gr'
+
 
 export default function Main(props) {
   const products = props.products;
   const [data, setData] = useState([]);
   const [sortType, setSortType] = useState("abc");
   const [cart, setCart] = useState([]);
+
+  var subTotal = Math.round(((cart.reduce((a,v) =>  a = a + v.Price , 0 )) + Number.EPSILON) * 100) / 100
+  var tax = Math.round(((subTotal * .0545) + Number.EPSILON) * 100) / 100
+  var cartTotal = Math.round(((subTotal + tax) + Number.EPSILON) * 100) / 100
+
 
   function closeCart() {
     document.getElementById("cart").style.display = "none";
@@ -19,11 +27,6 @@ export default function Main(props) {
     document.getElementById("cart").style.display = "flex";
   }
 
-  // function add2CartBtn(product) {
-  //   cart.push(product)
-  //   console.log(cart)
-  //   console.log(product)
-  // }
 
   const addToCart= (product) => {
     setCart([...cart, product])
@@ -43,6 +46,8 @@ export default function Main(props) {
     sortArray(sortType);
   }, [sortType]);
 
+
+
   return (
     <div className="main">
 
@@ -57,58 +62,91 @@ export default function Main(props) {
             <option value="PriceH2L">Price (High to Low)</option>
           </select>
         </div>
+
         <div className="cart-btn-contain">
-          <button className="view-cart-btn" onClick={() => viewCart()}>View Cart </button>
+          <button className="view-cart-btn" onClick={() => viewCart()}><GrCart/></button>
           <div className="cart-qty">{cart.length}</div>
         </div>
-
-
       </div>
 
       <div className="grid" id="grid">
-        {/* {data.map((product, i) => (
-          <ProductBox data={product} key={product.id} />
-        ))} */}
-
         {data.map((product) =>
                 <div className="box" >        
                     <h2 className="productName">{product.Product_Name}</h2>
-                    <img className="productImage" src={product.Image} />
+                    <div className="imgWindow"><img className="productImage" src={product.Image} /></div>                    
                     <p>{product.Description}</p>
                     <h4>${product.Price}</h4>
                     <button className="add2CartBtn" onClick={() => addToCart(product)}>Add to cart</button>
                 </div>
         )}
-      </div>
+      </div> {/* END "GRID" */}
 
-      <div className="grid cartBG" id="cart">
+
+
+      <div className="cartBG" id="cart">
         <div className="cartContent">
-          {/* <p>{cart.length}</p> */}
-          <button className="removeFromCart" onClick={() => closeCart()}>Close Cart</button>
-            {cart.map((cartItem) =>
-                <div className="cartBox" >
-                  <div className="productData">
-                    <h2>{cartItem.Product_Name}</h2>
-                    <p>{cartItem.Description}</p>                       
-                  </div>
-                        
-                  <div className="productControls">
-                      <h4>${cartItem.Price}</h4> 
-                      <p>QTY: </p>
-                      <button className="removeFromCart" onClick={() => removeFromCart(cartItem)}>Remove</button>
-                  </div>
-                
-                </div>
-            )}
-            <h1>TOTAL: ${cart.reduce((a,v) =>  a = a + v.Price , 0 )}</h1>
+          <p className="closeCart" onClick={() => closeCart()}><GrClose /></p>
+            <div className="cartTop">
+              <table>
+                <tr>
+                  <th></th>
+                  <th>Name</th>
+                  <th id="descTitle">Desc</th>
+                  <th>Price</th>
+                  <th>Qty</th>
+                </tr>
+                {cart.map((cartItem) =>
+                <tr>
+                  <td><div className="cartImgWindow"><img className="cartProductImage" src={cartItem.Image} /></div></td>
+                  <td>{cartItem.Product_Name}</td>
+                  <td id="desctxt">{cartItem.Description}</td>
+                  <td>${cartItem.Price}</td>
+                  <td>Qty Here</td>
+                  <td><button className="removeFromCart" onClick={() => removeFromCart(cartItem)}>Remove</button></td>
+                </tr>
+                )}
+              </table>
+            </div>
 
-            <button className="confirm"><Link to="/Confirm">Place Order</Link></button>
-        </div>
+                  
+
+            <div className="cartBottom">
+              {/* <table>
+                <tr>
+                  <th>Sub Total</th>
+                  <th>Tax</th>
+                  <th id="total">Total</th>
+                </tr>
+                <tr>
+                  <td>${subTotal}</td>
+                  <td>${tax}</td>
+                  <td id="totalPrice">${cartTotal}</td>
+                </tr>
+              </table> */}
+
+              <table className="cartTotals">
+                <tr>
+                  <th>Sub Total</th>
+                  <td>${subTotal}</td>
+                  
+                </tr>
+                <tr></tr>
+                  <th>Tax</th>
+                  <td>${tax}</td>
+                <tr>
+                <th id="total">Total</th>
+                  <td id="totalPrice">${cartTotal}</td>
+                </tr>
+              </table>
+              <button className="confirm"><Link to="/Confirm" id="confirm">Checkout</Link></button>
+            </div>
+
+        </div> {/* END "CART CONTENT" */}
           
-      </div>
+      </div> {/* END "CART BG" */}
 
       
-    </div>
+    {/* END "MAIN" */}</div> 
 
     
   );

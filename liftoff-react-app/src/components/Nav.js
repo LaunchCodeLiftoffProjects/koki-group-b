@@ -5,17 +5,27 @@ import { useInView } from 'react-intersection-observer';
 
 export default function Nav(props) {
 
+    function handleMobileNav() {
+      const nav = document.getElementById('nav')
+
+      // document.getElementById('nav').style.display = "block";
+      if(nav.style.display === 'none') {
+        nav.style.display = 'block';
+      } else {
+        nav.style.display = 'none'
+      }
+    } 
 
     return(
 
       <div>
-          <div className="burger">
+          <div className="burger" id="burger" onClick={() => handleMobileNav()}>
             <div></div>
             <div></div>
             <div></div>
           </div>
 
-          <nav>
+          <nav id="nav">
             <ul className="nav-links nav-left">
               <li className="navLink"><a href="#">Bedroom</a></li>
               <li className="navLink"><a href="#">Kitchen</a></li>
