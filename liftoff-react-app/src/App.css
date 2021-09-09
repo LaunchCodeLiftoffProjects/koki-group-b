@@ -37,7 +37,7 @@ nav {
   padding: 0 50px;
   color: rgb(59, 59, 59);
   font-size: 18px;
-
+  color: #EDF2F4;
   display: block;
 }
 
@@ -49,14 +49,7 @@ nav {
 
 }
 
-.navLink a:hover, .navLink:hover {
-  color: #EF233C;
 
-}
-
-.navLink a:active, .navLink:active {
-  color: #EF233C;
-}
 
 
 .navLink {
@@ -109,7 +102,7 @@ nav {
     width: 100%;
     top: 49px;
     background-color: #8d99ae;
-    height: 35%;
+    height: 45%;
     transition: ease-in .3s;
   }
 

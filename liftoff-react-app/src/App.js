@@ -23,7 +23,6 @@ class App extends Component {
       <div className="App">
         <Router>
           <Banner message="Hello World!" />
-          <Nav />
           <Route path="/" exact component={API} />
           <Route path="/Cart" component={Cart} />
           <Route path="/Confirm" component={Confirm} />

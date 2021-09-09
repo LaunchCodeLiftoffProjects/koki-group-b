@@ -15,7 +15,6 @@
         const fetchProducts = async () => {
           const response = await fetch("http://localhost:3005/products");
           const product = await response.json();
-          console.log(product)
   
 
           this.setState({
