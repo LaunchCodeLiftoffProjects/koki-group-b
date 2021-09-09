@@ -1,18 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { useInView } from 'react-intersection-observer';
+// import { Link } from 'react-router-dom';
+// import { useInView } from 'react-intersection-observer';
 
 
 export default function Nav(props) {
 
     function handleMobileNav() {
       const nav = document.getElementById('nav')
-
-      // document.getElementById('nav').style.display = "block";
-      if(nav.style.display === 'none') {
-        nav.style.display = 'block';
+      if(nav.style.display === 'block') {
+        nav.style.display = 'none';
       } else {
-        nav.style.display = 'none'
+        nav.style.display = 'block'
       }
     } 
 

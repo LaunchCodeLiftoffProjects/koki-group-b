@@ -11,63 +11,46 @@
   
 }
 
-/* ****** NAVIGATION ****** */
+/* ------------------ NAVIGATION ------------------ */
 
-/* GLOBAL NAV BAR DESKTOP */
+/* --------- GLOBAL NAV BAR DESKTOP --------- */
 
 nav {
   background: #2B2D42;
   transition: ease-in .3s;
   height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .nav-links {
-
-  list-style-type: none;
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center;
-  
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .navLink {
+  cursor: pointer;
   height: 50px;
   line-height: 50px;
-  padding: 0 50px;
+  padding: 50px 0px;
   color: rgb(59, 59, 59);
   font-size: 18px;
   color: #EDF2F4;
   display: block;
 }
 
-
-.navLink a {
-  text-decoration: none;
-  color: #EDF2F4;
- 
-
+.navLink:hover {
+  color: #EF233C;   
 }
 
 
-
-
-.navLink {
-  list-style-type: none;
-  color: #EDF2F4;
-  text-decoration: none;
-}
-
-.nav-right {
-  width: 20%;
-  padding-right: 20px;
-}
-
-/* UPPER NAV BAR DESKTOP */
-
-
-
-/* BURGER & MOBILE */
+/* --------- BURGER & MOBILE --------- */
 
 .burger {
   display: none;
@@ -92,17 +75,16 @@ nav {
     width: 100%
   }
 
-  /* .nav-left {
-    display: ;
-  } */
+  .navLink {
+    width: 100%;
+    padding: 0px;
+  }
 
   nav {
     display: none;
     position: fixed;
     width: 100%;
     top: 49px;
-    background-color: #8d99ae;
-    height: 45%;
     transition: ease-in .3s;
   }
 
@@ -114,26 +96,125 @@ nav {
     width: 100%;
     list-style-type: none;
     transition: ease-in .3s;
+    background-color: #8d99ae;
   }
 
   .navLink:hover {
     background-color: #EF233C;
-    width: 100%;
-  }
-
-  .navLink a:hover {
-    color: #EDF2F4;
+    color: #EDF2F4;   
   }
 
 }
 
 
-/* ****** MAIN CONTENT ****** */
+/* ------------------ MAIN CONTENT ------------------ */
 
 .main {
   display: flex;
   flex-direction: column;
 }
+
+/* --------- WINDOW --------- */
+
+.window {
+  width: 100%;
+  height: 600px;
+  background: #8D99AE;
+  background-image: url("https://github.com/LaunchCodeLiftoffProjects/koki-group-b/blob/main/Banner.jpg?raw=true");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 90px;
+  color: #EF233C;
+}
+
+.window-content {
+  background-color: #0000007c;
+   display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 800px) {
+  .window {
+    height: 80vh;
+  }
+}
+
+/* --------- PRODUCT GRID --------- */
+
+.sort {
+  margin: 40px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.grid {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.box {
+  height: 450px;
+  width: 400px;
+  background-color: #EDF2F4;
+  border-radius: 10px;
+  border: #2b2d42 1px solid;
+  margin: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  
+}
+
+.box:hover, .box:active, .box:focus {
+  box-shadow: #2b2d42 0px 0px 20px;  
+}
+
+.imgWindow {
+  width: 90%;
+  height: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productImage {
+  max-width: 100%;
+}
+
+.add2CartBtn{
+  background-color: #EF233C;
+  height: 30px;
+  width: 150px;
+  border: none;
+  font-size: 1rem;
+}
+
+.add2CartBtn:hover, .add2CartBtn:focus {
+  background-color: #2B2D42;
+  color: #EF233C;
+  font-weight: normal;
+}
+
+@media screen and (max-width: 800px) {
+  .box {
+    width: 90%;
+  }
+}
+
+/* --------- UPPER CART BUTTONS --------- */
 
 .cart-btn-contain {
   display: flex;
@@ -162,7 +243,7 @@ nav {
 }
 
 
-/* CART */
+/* ------------------ CART ------------------ */
 
 
 #cart {
@@ -188,7 +269,6 @@ nav {
   background-color: #EDF2F4;
   width: 80%;
   box-shadow: rgb(0, 0, 0) 0px 0px 30px;
-
 }
 
 .cartImgWindow {
@@ -339,108 +419,7 @@ tr:last-child {
   }
 }
 
-/* WINDOW */
-
-.window {
-  width: 100%;
-  height: 600px;
-  background: #8D99AE;
-  background-image: url("https://github.com/LaunchCodeLiftoffProjects/koki-group-b/blob/main/Banner.jpg?raw=true");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 90px;
-  color: #EF233C;
-}
-
-.window-content {
-  background-color: #0000007c;
-   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
-
-@media screen and (max-width: 800px) {
-  .window {
-    height: 80vh;
-  }
-}
-
-/* PRODUCT GRID */
-
-.sort {
-  margin: 40px 0px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.grid {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.box {
-  height: 450px;
-  width: 400px;
-  background-color: #EDF2F4;
-  border-radius: 10px;
-  border: #2b2d42 1px solid;
-  margin: 30px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
-  
-}
-
-.box:hover, .box:active, .box:focus {
-  box-shadow: #2b2d42 0px 0px 20px;  
-}
-
-.imgWindow {
-  width: 90%;
-  height: 50%;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.productImage {
-  max-width: 100%;
-}
-
-.add2CartBtn{
-  background-color: #EF233C;
-  height: 30px;
-  width: 150px;
-  border: none;
-  font-size: 1rem;
-}
-
-.add2CartBtn:hover, .add2CartBtn:focus {
-  background-color: #2B2D42;
-  color: #EF233C;
-  font-weight: normal;
-}
-
-@media screen and (max-width: 800px) {
-  .box {
-    width: 90%;
-  }
-}
-
-
-/* ****** FOOTER ****** */
+/*  ------------------  FOOTER  ------------------  */
 
 footer {
   background-color: #2B2D42;

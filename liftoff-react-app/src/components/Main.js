@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
-import ProductBox from "./ProductBox";
 import { sortProducts } from "../helpers/MainHelper";
 import { Link } from "react-router-dom";
-import Banner from "./Banner";
-import arm_chair from "../images/arm_chair.jpeg";
 import { GrCart } from "react-icons/gr";
 import { GrClose } from "react-icons/gr";
+// import ProductBox from "./ProductBox";
+// import Banner from "./Banner";
+// import arm_chair from "../images/arm_chair.jpeg";
+
+
 
 export default function Main(props) {
   const products = props.products;
   const [data, setData] = useState([]);
   const [sortType, setSortType] = useState("abc");
   const [cart, setCart] = useState([]);
-  const [items, setItems] = useState([]);
   const [roomType, setRoomType] = useState(0);
 
   var subTotal =
@@ -73,7 +74,6 @@ export default function Main(props) {
   function handleMobileNav() {
     const nav = document.getElementById("nav");
 
-    // document.getElementById('nav').style.display = "block";
     if (nav.style.display === "none") {
       nav.style.display = "block";
     } else {
@@ -113,11 +113,7 @@ export default function Main(props) {
           </li>
         </ul>
 
-        {/* <ul className="nav-links nav-right">
-                    <Link to="/Cart">Cart</Link>
-                    <li className="navLink"><a href="#">Log In</a></li>
-                    <li className="navLink"><a href="#">Sign Up</a></li> */}
-        {/* </ul> */}
+
       </nav>
       <div className="sort custom-select">
         <div className="sort-contain">
