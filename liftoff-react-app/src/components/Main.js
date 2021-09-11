@@ -32,7 +32,7 @@ export default function Main(props) {
   }
 
   const addToCart = (product) => {
-    setCart([...cart, product]);
+    setCart([...cart, {...product}]);
   };
 
   const removeFromCart = (productToRemove) => {
