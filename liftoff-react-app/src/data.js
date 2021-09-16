@@ -4,18 +4,20 @@
   import ProductBox from "./components/ProductBox";
   import Main from "./components/Main"
 
-  
+
   export default class API extends React.Component {
+    props = this.props;
     state = {
       loading: true,
       products: null,
+      cartItems: null,
     };
-  
+
     componentDidMount() {
-        const fetchProducts = async () => {
+          const fetchProducts = async () => {
           const response = await fetch("http://localhost:3005/products");
           const product = await response.json();
-  
+
 
           this.setState({
             products: product,
@@ -23,24 +25,31 @@
           });
         };
         fetchProducts();
-        
+
       }
 
+    handleCallback = (childData) => {
+        this.setState({cartItems: childData});
+    }
 
     render() {
       if (this.state.loading) {
         return <div>loading products...</div>;
       }
-  
+
       if (!this.state.products) {
         return <div>No products</div>;
       }
 
-        return (
+      return (
         <div className="api" id="api">
-            <Main products={this.state.products}/>
+            <Main
+            products={this.state.products}
+            dataCallback = {this.handleCallback}
+            appCallback = {this.props.appCallback}
+            />
         </div>
-        );
+      );
     }
   }
 
@@ -76,7 +85,7 @@
 //   .then(res => res.json())
 //   .then(data => obj = data)
 //   .then(() => console.log(obj))
-  
+
 // // const info = async () => {
 // //     await fetch('http://localhost:3005/products')
 // //     .then(res => res.json())
@@ -85,7 +94,7 @@
 
 // //         return obj
 
-// // } 
+// // }
 
 // const products = 'http://localhost:3005/products';
 
@@ -113,6 +122,6 @@
 // console.log("test:")
 // console.log(test)
 // //   console.log(data)
-  
+
 
 //   export default data;

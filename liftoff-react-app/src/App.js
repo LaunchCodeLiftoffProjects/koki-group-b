@@ -12,21 +12,33 @@ import Banner from "./components/Banner";
 // import axios from "axios";
 // import { useState, useEffect } from "react";
 
-class App extends Component {
+
+class App extends React.Component {
   state = {
     visible: true,
+    cartItems: null,
+    test: "Message",
   };
 
+
+  handleCallback = (childData) => {
+    this.setState({cartItems: childData})
+  }
+
   render() {
+
     return (
-      <div className="App">
-        <Router>
-          <Banner message="Hello World!" />
-          <Route path="/" exact component={API} />
-          <Route path="/Confirm" component={Confirm} />
-        </Router>      
-        <Footer />
-      </div>
+
+          <div className="App">
+            <Router>
+              <Banner message="Hello World!" />
+              <Route exact path="/" render = {(props) => <API appCallback = {this.handleCallback}  />}
+              />
+              <Route path="/Confirm" render = {(props) => <Confirm cartItems = {this.state.cartItems} />} />
+            </Router>
+            <Footer />
+          </div>
+
     );
   }
 }

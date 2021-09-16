@@ -48,9 +48,6 @@ export default function Main(props) {
     }
 
     filtered = products.filter((product) => product.Room === roomId);
-    console.log(products);
-    console.log(roomId);
-    console.log(filtered);
     setRoomType(roomId);
     return filtered;
   }
@@ -217,7 +214,7 @@ export default function Main(props) {
                 <td id="totalPrice">${cartTotal}</td>
               </tr>
             </table>
-            <button className="confirm">
+            <button className="confirm" onClick = {() => {props.dataCallback(cart); props.appCallback(cart)}}np>
               <Link to="/Confirm" id="confirm">
                 Checkout
               </Link>
