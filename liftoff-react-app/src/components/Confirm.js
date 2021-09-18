@@ -28,7 +28,7 @@ function Confirm(props){
                               <td>{cartItem.Product_Name}</td>
                               <td id="desctxt">{cartItem.Description}</td>
                               <td>${cartItem.Price}</td>
-                              <td>Qty Here</td>
+                              <td>{cartItem.qty}</td>
                             </tr>
                           ))}
                         </table>

@@ -15,6 +15,8 @@ export default function Main(props) {
   const [sortType, setSortType] = useState("abc");
   const [cart, setCart] = useState([]);
   const [roomType, setRoomType] = useState(0);
+  const [total, setTotal] = useState(0);
+
 
   var subTotal =
     Math.round(
@@ -29,10 +31,25 @@ export default function Main(props) {
 
   function viewCart() {
     document.getElementById("cart").style.display = "flex";
+    console.log(cart);
+  }
+
+  function eqProduct(cart, product) {
+    for (let i=0; i<cart.length; i++) {
+        if (cart[i].id === product.id) {
+            return i;
+        }
+    }
+    return -1;
   }
 
   const addToCart = (product) => {
-    setCart([...cart, {...product}]);
+    product.qty += 1;
+    if (product.qty == 1) {
+        setCart([...cart, {...product}]);
+    } else {
+        cart[eqProduct(cart, product)] = product;
+    }
   };
 
   const removeFromCart = (productToRemove) => {
@@ -53,12 +70,12 @@ export default function Main(props) {
   }
 
   useEffect(() => {
-    const sortArray = (type) => {
-      setData(sortProducts(data, type));
-    };
+      const sortArray = (type) => {
+        setData(sortProducts(data, type));
+      };
 
-    sortArray(sortType);
-  }, [sortType]);
+      sortArray(sortType);
+    }, [sortType]);
 
   useEffect(() => {
     const filterRoom = (roomId) => {
@@ -130,7 +147,7 @@ export default function Main(props) {
           <button className="view-cart-btn" onClick={() => viewCart()}>
             <GrCart />
           </button>
-          <div className="cart-qty">{cart.length}</div>
+          <div className="cart-qty">{total}</div>
         </div>
       </div>
       <div className="grid" id="grid">
@@ -142,7 +159,7 @@ export default function Main(props) {
             </div>
             <p>{product.Description}</p>
             <h4>${product.Price}</h4>
-            <button className="add2CartBtn" onClick={() => addToCart(product)}>
+            <button className="add2CartBtn" onClick={() => {addToCart(product);  setTotal(total+1);console.log(cart)}}>
               Add to cart
             </button>
           </div>
@@ -173,7 +190,7 @@ export default function Main(props) {
                   <td>{cartItem.Product_Name}</td>
                   <td id="desctxt">{cartItem.Description}</td>
                   <td>${cartItem.Price}</td>
-                  <td>Qty Here</td>
+                  <td>{cartItem.qty}</td>
                   <td>
                     <button
                       className="removeFromCart"
@@ -214,7 +231,7 @@ export default function Main(props) {
                 <td id="totalPrice">${cartTotal}</td>
               </tr>
             </table>
-            <button className="confirm" onClick = {() => {props.dataCallback(cart); props.appCallback(cart)}}np>
+            <button className="confirm" onClick = {() => {props.appCallback(cart)}}>
               <Link to="/Confirm" id="confirm">
                 Checkout
               </Link>
