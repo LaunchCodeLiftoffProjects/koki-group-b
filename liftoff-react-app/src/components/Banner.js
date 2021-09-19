@@ -4,7 +4,7 @@ export default function Banner(props) {
     return(
         <div className="window">
             <div className="window-content">
-                {/* <h3>{props.message}</h3> */}
+                <img id="logo" src="https://raw.githubusercontent.com/LaunchCodeLiftoffProjects/koki-group-b/main/Liftoff%20Furnishings%20Logo.png"></img>
             </div>
         </div>
     )

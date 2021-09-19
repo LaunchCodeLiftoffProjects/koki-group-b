@@ -141,6 +141,12 @@ nav {
   height: 100%;
 }
 
+#logo {
+  max-width: 90%;
+  max-height: 90%;
+  background-color: rgba(0, 0, 0, 0.39);
+}
+
 @media screen and (max-width: 800px) {
   .window {
     height: 80vh;
@@ -243,7 +249,7 @@ nav {
 }
 
 
-/* ------------------ CART ------------------ */
+/* ------------------ MODAL CART ------------------ */
 
 
 #cart {
@@ -369,7 +375,7 @@ tr:last-child {
 .confirm {
   background-color: #EF233C;
   height: 60px;
-  width: 400px;
+  width: 600px;
   border: none;
   font-size: 2rem;
   text-transform: uppercase;
@@ -381,12 +387,45 @@ tr:last-child {
   text-decoration: none;
 }
 
+#mobileConfirm {
+  display: none;
+}
+
 
 
 @media screen and (max-width: 800px) {
+
+
+
   .cartContent {
-    font-size: 10px;
-    width: 95%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  .cartTop {
+    max-height: 100%;
+    width: 100%;
+  }
+
+
+  .desktopConfirm {
+    display: none;
+  }
+
+  .cartBottom {
+    flex-direction: column-reverse;
+  }
+
+  #mobileConfirm {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
   }
 
   #desctxt, #descTitle{
@@ -416,6 +455,77 @@ tr:last-child {
     border: none;
     font-size: 2rem;
     text-transform: uppercase;
+  }
+}
+
+/*  ------------------  CONFIRM PAGE  ------------------  */
+
+.confirm-cartTotals-contain {
+  width: 100%;
+  background-color: #d4dbe7;
+}
+
+.confirm-cartTotals {
+  width: 40%;
+}
+
+.confirm-cartTotals tr {
+  border: none;
+}
+
+.confirm-cartTotals tr:last-child { 
+  border-top: solid thin rgba(0, 0, 0, 0.322); 
+}
+
+/* .confirm-cartTotals {
+  margin: 10px auto;
+} */
+
+.pay-ship {
+  background-color: #edf2f4;
+  display: flex;
+}
+
+.infoInput {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px 0px;
+}
+
+.infoInput input {
+  width: 90%;
+  border: none;
+  border-bottom: black solid 2px;
+  background-color: #ffffff;
+}
+.infoInput label {
+  width: 90%;
+  text-align: left;
+  margin: 15px auto 10px auto;
+}
+
+.confirmBtn {
+  background-color: #EF233C;
+  height: 60px;
+  width: 100%;
+  border: none;
+  font-size: 2rem;
+  text-transform: uppercase;
+} 
+
+@media screen and (max-width: 800px) {
+  .confirmPage {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    background-color: #fff;
+  }
+
+  .pay-ship {
+    flex-direction: column;
   }
 }
 

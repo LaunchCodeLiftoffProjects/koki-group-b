@@ -155,7 +155,7 @@ export default function Main(props) {
           <div className="box">
             <h2 className="productName">{product.Product_Name}</h2>
             <div className="imgWindow">
-              <img className="productImage" src={product.Image} />
+            <img className="productImage" src={product.Image} alt={product.Description}/>
             </div>
             <p>{product.Description}</p>
             <h4>${product.Price}</h4>
@@ -205,18 +205,12 @@ export default function Main(props) {
           </div>
 
           <div className="cartBottom">
-            {/* <table>
-                <tr>
-                  <th>Sub Total</th>
-                  <th>Tax</th>
-                  <th id="total">Total</th>
-                </tr>
-                <tr>
-                  <td>${subTotal}</td>
-                  <td>${tax}</td>
-                  <td id="totalPrice">${cartTotal}</td>
-                </tr>
-              </table> */}
+          <button className="confirm mobileConfirm" id="mobileConfirm" onClick = {() => {props.appCallback(cart)}}>
+              <Link to="/Confirm" id="confirm">
+                Checkout
+              </Link>
+            </button>
+
 
             <table className="cartTotals">
               <tr>
@@ -231,7 +225,7 @@ export default function Main(props) {
                 <td id="totalPrice">${cartTotal}</td>
               </tr>
             </table>
-            <button className="confirm" onClick = {() => {props.appCallback(cart)}}>
+            <button className="confirm desktopConfirm" onClick = {() => {props.appCallback(cart)}}>
               <Link to="/Confirm" id="confirm">
                 Checkout
               </Link>
