@@ -54,6 +54,7 @@ export default function Main(props) {
 
   const removeFromCart = (productToRemove) => {
     setCart(cart.filter((product) => product !== productToRemove));
+    setTotal(total-productToRemove.qty);
   };
 
   function filterByRoom(products, roomId) {

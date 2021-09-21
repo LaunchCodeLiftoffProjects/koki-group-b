@@ -33,11 +33,6 @@ export default function Nav(props) {
               <li className="navLink"><a href="#">Outdoor</a></li>
             </ul>
 
-                  {/* <ul className="nav-links nav-right">
-                    <Link to="/Cart">Cart</Link>
-                    <li className="navLink"><a href="#">Log In</a></li>
-                    <li className="navLink"><a href="#">Sign Up</a></li> */}
-                  {/* </ul> */}
           </nav>
       </div>
 

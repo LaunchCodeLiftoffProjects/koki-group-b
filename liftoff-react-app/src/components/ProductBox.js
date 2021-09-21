@@ -4,12 +4,8 @@ import testBtn from '../helpers/CartHelper';
 import Cart from './Cart';
 
 export default function ProductBox(props) {
-    // console.log("props: " + props)
+
     const product = props.data;
-
-    
-    // console.log("product: " + product)
-
 
     return(
         <div className="box">

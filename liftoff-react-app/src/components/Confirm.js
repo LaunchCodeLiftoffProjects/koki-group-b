@@ -81,7 +81,7 @@ function Confirm(props){
                 <tr>
                   <td>
                     <div className="cartImgWindow">
-                      <img className="cartProductImage" src={cartItem.Image} />
+                      <img className="cartProductImage" src={cartItem.Image} alt={cartItem.Description}/>
                     </div>
                   </td>
                   <td>{cartItem.Product_Name}</td>
