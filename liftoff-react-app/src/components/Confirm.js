@@ -16,23 +16,29 @@ function Confirm(props){
       const exp = document.getElementById("exp").value
       const cvv = document.getElementById("cvv").value
   
-      // console.log(exp.slice(2))
-      var expYear = parseInt(exp.slice(2))
+      var date = new Date();
+      var year = date.getYear();
+      var month = date.getMonth()+1;
+
+      year = year%100;
+      console.log(year);
+
+      var expYear = parseInt(exp.slice(3))
       var expMonth = parseInt(exp.slice(0, 2))
       var cardExp = false;
   
-      if (expYear === 21) {
-        if (expMonth < 9) {
+      if (expYear === year) {
+        if (expMonth < month) {
           window.alert("Credit card is expired")  
           cardExp = true;      
         }    
-      } else if (expYear < 21) {
+      } else if (expYear < year) {
         window.alert("Credit card is expired")
         cardExp = true;
       } 
       
   
-      if (ccName.length >= 3 && ccnum.length === 16 && exp.length === 4 && !cardExp && cvv.length === 3) {
+      if (ccName.length >= 3 && ccnum.length === 16 && exp.length === 5 && !cardExp && cvv.length === 3) {
         // window.alert("Payment Info correct")
         return true
       } else {
