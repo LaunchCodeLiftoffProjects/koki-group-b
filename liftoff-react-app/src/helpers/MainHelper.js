@@ -18,3 +18,18 @@ export function sortProducts(products, type) {
   }
   return sorted;
 }
+
+export function searchProducts(products, searchText) {
+  var searched = [];
+
+  if (searchText === "") {
+        return products;
+  }
+  products.forEach(p => {
+    if (p.Product_Name.toUpperCase().includes(searchText.toUpperCase())){
+        searched.push(p)
+    }
+  })
+  return searched;
+}
+

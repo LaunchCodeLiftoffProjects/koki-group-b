@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { sortProducts } from "../helpers/MainHelper";
+import { sortProducts, searchProducts } from "../helpers/MainHelper";
 import { Link } from "react-router-dom";
 import { GrCart } from "react-icons/gr";
 import { GrClose } from "react-icons/gr";
@@ -16,6 +16,8 @@ export default function Main(props) {
   const [cart, setCart] = useState([]);
   const [roomType, setRoomType] = useState(0);
   const [total, setTotal] = useState(0);
+  const [searchText, setSearch] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState(products);
 
 
   var subTotal =
@@ -57,18 +59,7 @@ export default function Main(props) {
     setTotal(total-productToRemove.qty);
   };
 
-  function filterByRoom(products, roomId) {
-    var filtered = products;
-    if (roomId === 0) {
-      setRoomType(roomId);
 
-      return filtered;
-    }
-
-    filtered = products.filter((product) => product.Room === roomId);
-    setRoomType(roomId);
-    return filtered;
-  }
 
   useEffect(() => {
       const sortArray = (type) => {
@@ -78,6 +69,14 @@ export default function Main(props) {
       sortArray(sortType);
     }, [sortType]);
 
+    useEffect(() => {
+          const searchArray = (search) => {
+            setData(searchProducts(filteredProducts, search));
+          };
+
+          searchArray(searchText);
+        }, [searchText]);
+
   useEffect(() => {
     const filterRoom = (roomId) => {
       setData(filterByRoom(products, roomId));
@@ -85,6 +84,19 @@ export default function Main(props) {
 
     filterRoom(roomType);
   }, [roomType]);
+
+
+function filterByRoom(products, roomId) {
+    var filtered = products;
+    setSearch("")
+    if (roomId !== 0) {
+     filtered = products.filter((product) => product.Room === roomId);
+    }
+
+    setRoomType(roomId);
+    setFilteredProducts(filtered);
+    return filtered;
+  }
 
   function handleMobileNav() {
     const nav = document.getElementById("nav");
@@ -142,6 +154,14 @@ export default function Main(props) {
             <option value="PriceL2H">Price (Low to High)</option>
             <option value="PriceH2L">Price (High to Low)</option>
           </select>
+        </div>
+        <div className="search">
+              <input
+                  type="text"
+                  placeholder="Search product"
+                  value={searchText}
+                  onChange={(e) => setSearch(e.target.value)}
+                  />
         </div>
 
         <div className="cart-btn-contain">
