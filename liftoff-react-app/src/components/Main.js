@@ -3,10 +3,6 @@ import { sortProducts, searchProducts } from "../helpers/MainHelper";
 import { Link } from "react-router-dom";
 import { GrCart } from "react-icons/gr";
 import { GrClose } from "react-icons/gr";
-// import ProductBox from "./ProductBox";
-// import Banner from "./Banner";
-// import arm_chair from "../images/arm_chair.jpeg";
-
 
 
 export default function Main(props) {

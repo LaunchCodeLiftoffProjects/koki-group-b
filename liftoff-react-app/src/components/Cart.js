@@ -4,15 +4,6 @@ import { Link } from 'react-router-dom';
 
 function Cart(){
 
-    // const product = props.data
-    // console.log(product)
-    
-    // const [cartItems,setCartItems] = useState([]);
-    
-    // const onAdd = (product) => {
-    //     console.log("added")
-    //     console.log(product)
-    // }
 
     return(
         <div>

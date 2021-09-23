@@ -23,21 +23,6 @@ db.connect((err) => {
     console.log('MySQL Connected...');
 })
 
-//Create Table
-/*
-app.get('/createtable', (req, res) => {
-    let sql = 'CREATE TABLE products(id int AUTO_INCREMENT, Product_Name VARCHAR(255), Description VARCHAR(255), Price INT, PRIMARY KEY(id))';
-    db.query(sql, (err, result) => {
-        if(err) {
-            console.log('Failed to create table...');
-        }
-
-        console.log(results);
-        res.send('Table Created...')
-    });
-});
-*/
-
 //Default Form
 app.get('', (req, res) => {
 

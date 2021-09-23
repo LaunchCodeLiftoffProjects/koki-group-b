@@ -25,15 +25,7 @@ router.post('/', (req,res)=> {
         console.log(result);
         res.json(result);
     });
-    /*
-    let sql2 = 'INSERT INTO cart (Product_Name, Description, Price) VALUES (?,?,?)';
-    db.query(sql2,product, (err,result)=>{
-       if(err) {
-           console.log('Failed to create test product...');
-       }
-       console.log(result);
-       res.json(result);
-    });*/
+
 });
 
 module.exports = router

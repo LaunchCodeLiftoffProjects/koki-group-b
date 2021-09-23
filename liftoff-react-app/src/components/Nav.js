@@ -1,6 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
-// import { useInView } from 'react-intersection-observer';
 
 
 export default function Nav(props) {
